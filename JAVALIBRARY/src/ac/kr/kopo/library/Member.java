@@ -18,38 +18,7 @@ public class Member {
 		this.userPhoneNumber = userPhoneNumber;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getUserID() {
-		return userID;
-	}
-
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
-
-	public String getUserPWD() {
-		return userPWD;
-	}
-
-	public void setUserPWD(String userPWD) {
-		this.userPWD = userPWD;
-	}
-
-	public String getUserPhoneNumber() {
-		return userPhoneNumber;
-	}
-
-	public void setUserPhoneNumber(String userPhoneNumber) {
-		this.userPhoneNumber = userPhoneNumber;
-	}
-
+	
 	
 	@Override
 	public String toString() {

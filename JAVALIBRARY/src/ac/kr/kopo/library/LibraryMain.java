@@ -11,12 +11,10 @@ public class LibraryMain {
 			System.out.println("=====회원가입 및 로그인 구현=====");
 			System.out.println("1.회원가입 2.로그인 3. 종료");
 			String num = sc.nextLine();
-			int cnt = 0;
 			while (true) {
 				switch (num) {
 				case "1":
 					re.process();
-					cnt++;
 					break;
 				case "2":
 					lg.loginStart(re.getMap());
