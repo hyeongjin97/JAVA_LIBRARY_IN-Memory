@@ -17,18 +17,61 @@ public class Register extends Member {
 	public void startRegister() {
 
 		System.out.println("------회원가입을 시작합니다--------");
-		System.out.println("이름을 입력하세요 : ");
-		userName = sc.nextLine();
-		System.out.println("아이디를 입력하세요 : ");
-		userID = sc.nextLine();
-		System.out.println("비밀번호를 입력하세요 : ");
-		userPWD = sc.nextLine();
-		System.out.println("전화번호를 입력하세요 : ");
-		userPhoneNumber = sc.nextLine();
+		while (true) {
+			System.out.println("이름을 입력하세요 : ");
+			userName = sc.nextLine();
+			if (userName == "") {
+				System.out.println("공백은 입력불가입니다.");
+			} else {
+				break;
+			}
+		}
+		while (true) {
+
+			System.out.println("아이디를 입력하세요 : ");
+			userID = sc.nextLine();
+			if (map.containsKey(userID)) {
+				System.out.println("해당 아이디가 존재합니다");
+			} else if (userID == "") {
+				System.out.println("공백은 입력불가입니다.");
+			} else {
+				break;
+			}
+		}
+		while (true) {
+			System.out.println("비밀번호를 입력하세요 : ");
+			userPWD = sc.nextLine();
+			if (userPWD == "") {
+				System.out.println("공백은 입력 불가합니다.");
+			} else {
+				while (true) {
+					System.out.println("비밀번호를 다시 한번 입력하세요");
+					String userPWD2 = sc.nextLine();
+					if (!userPWD.equals(userPWD2)) {
+						System.out.println("비밀번호가 일치하지 않습니다.");
+					} else {
+						break;
+					}
+				}
+				break;
+		}
+			
+		}
+		while (true) {
+			System.out.println("전화번호를 입력하세요 : ");
+			userPhoneNumber = sc.nextLine();
+			if (userPhoneNumber == "") {
+				System.out.println("공백입력은 불가합니다.");
+			} else {
+				break;
+			}
+		}
+
 		m = new Member(userName, userID, userPWD, userPhoneNumber);
 		list.add(m);
 		map.put(userID, m);
-
+		System.out.println("회원가입 성공");
+		System.out.println("가입정보 : " + toString());
 	}
 
 	public Map<String, Member> getMap() {

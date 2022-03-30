@@ -16,19 +16,27 @@ public class Login extends Register {
 		
 		System.out.println();
 		System.out.println("========로그인 시작========");
-		System.out.println("아이디를 입력하세요 : ");
-		loginID = sc.nextLine();
-		if(!map.containsKey(loginID)) {
-			System.out.println("등록된 아이디가 없습니다.");
-			return;
+		while(true) {
+			System.out.println("아이디를 입력하세요 : ");
+			loginID = sc.nextLine();
+			if(!map.containsKey(loginID)) {
+				System.out.println("등록된 아이디가 없습니다.");
+			}else {
+				break;
+			}
+			
 		}
-		System.out.println("비밀번호를 입력하세요 : ");
-		loginPwd = sc.nextLine();
-		if(!map.get(loginID).userPWD.equals(loginPwd)) {
-			System.out.println("비밀번호가 틀렸습니다.");
-			return;
+		while(true) {
+			System.out.println("비밀번호를 입력하세요 : ");
+			loginPwd = sc.nextLine();
+			if(!map.get(loginID).userPWD.equals(loginPwd)) {
+				System.out.println("비밀번호가 틀렸습니다.");
+			}else {
+				break;
+			}		
 		}
-		System.out.println("로그인 성공");
+		
+		System.out.println("로그인 성공!! " + map.get(loginID).userName+"님 반갑습니다!!!");
 		
 	}
 
