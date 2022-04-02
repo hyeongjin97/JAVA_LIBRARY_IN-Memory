@@ -79,13 +79,7 @@ public class Register extends Member {
 
 	}
 
-	public void printList() {
-		Object[] arr = list.toArray();
-		for (Object ar : arr) {
-			System.out.println(ar);
-		}
-	}
-
+	
 	public void process() {
 		startRegister();
 	}

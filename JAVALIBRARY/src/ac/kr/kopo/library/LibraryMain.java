@@ -7,6 +7,7 @@ public class LibraryMain {
 		Scanner sc = new Scanner(System.in);
 		Register re = new Register();
 		Login lg = new Login();
+		MemberView mv = new MemberView();
 		while (true) {
 			System.out.println("=====회원가입 및 로그인 구현=====");
 			System.out.println("1.회원가입 2.로그인 3. 종료");
@@ -18,10 +19,9 @@ public class LibraryMain {
 					break;
 				case "2":
 					lg.loginStart(re.getMap());
+					mv.mainPage(re.getMap(),lg.getLoginID());
 					break;
 				case "3":
-					System.out.println("========회원 명단========");
-					re.printList();
 					System.exit(0);
 
 				default:
