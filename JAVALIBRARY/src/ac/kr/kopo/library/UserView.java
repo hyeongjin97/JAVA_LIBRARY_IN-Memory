@@ -9,7 +9,7 @@ public class UserView {
 	MyPageView mp = new MyPageView();
 	BookUtil bu = new BookUtil();
 	
-	public void mainPage(Map<String,Member> map,String str,Map<String,BookInfo> map1) {
+	public void mainPage(Map<String,Member> map,String str,Map<String,BookInfo> map1, Map<String, Object[]> userRecentMap) {
 		
 		
 			while(true) {
@@ -26,7 +26,7 @@ public class UserView {
 			case "3":
 				break;
 			case "4":
-				mp.MyPage(map,str);
+				mp.MyPage(map,str,userRecentMap);
 				break;
 			case "5":
 				return;

@@ -10,30 +10,20 @@ public class BookUtil extends BookInfo {
 
 	Map<String, BookInfo> bookMap = new HashMap<>();
 	
-	List<UserRentBook> userRentList = new ArrayList<>();
+	List<UserRecentBook> userRecentList = new ArrayList<>();
 	
-	Map<String, Object[]> userRentMap = new HashMap<>();
+	Map<String, Object[]> userRecentMap = new HashMap<>();
 
 	private Scanner sc = new Scanner(System.in);
 
 	BookInfo bi = null;
 
-	UserRentBook urb = new UserRentBook();
+	UserRecentBook urb = new UserRecentBook();
 	
 	
 	
-	public Map<String,BookInfo> defaultBooks() {
 
-		bookMap.put("1", new BookInfo("1", "자바의 정석", "남궁 성 ", "3"));
-		bookMap.put("2", new BookInfo("2", "이것이 자바다", "신용권", "1"));
-		bookMap.put("3", new BookInfo("3", "너의 췌장을 먹고 싶어", "스미노 요루", "4"));
-		bookMap.put("4", new BookInfo("4", "총 균 쇠", "재레드 다이아몬드", "0"));
 
-		return bookMap;
-		
-	}
-	
-	
 	public Map<String, BookInfo> getBookMap() {
 		return bookMap;
 	}
@@ -62,13 +52,16 @@ public class BookUtil extends BookInfo {
 			switch (confirm) {
 			case "Y":
 				bi = bookMap.get(rentID);
- 				urb =  new UserRentBook(str ,bi.bookID, bi.bookName, bi.writer,"a","b");
-				userRentList.add(urb);
-				Object[] arr = userRentList.toArray();
-				for(int i = 0; i < arr.length; i++) {
-					System.out.println(arr[i]);
+ 				urb =  new UserRecentBook(str ,bi.bookID, bi.bookName, bi.writer,"a","b");
+				userRecentList.add(urb);
+				Object[] arr = userRecentList.toArray();
+//				for(int i = 0; i < arr.length; i++) {
+//					System.out.println(arr[i]);
+//				}
+				userRecentMap.put(str, arr);
+				for(Object arr1 : arr) {
+					System.out.println(arr1);
 				}
-				userRentMap.put(str, arr);
 				Integer a = Integer.parseInt(bookMap.get(rentID).bookQuantity)-1;
 				bookMap.get(rentID).bookQuantity = a.toString();
 				break;
@@ -83,6 +76,20 @@ public class BookUtil extends BookInfo {
 		} else {
 			System.out.println("입력하신 ID의 책 수량이 없습니다.");
 		}
+		
+		
+	}
+	
+	
+	
+	
+
+	public Map<String, Object[]> getUserRecentMap() {
+		return userRecentMap;
+	}
+
+	public void setUserRecentMap(Map<String, Object[]> userRecentMap) {
+		this.userRecentMap = userRecentMap;
 	}
 
 	public BookUtil(String bookID, String bookName, String writer, String bookQuantity) {

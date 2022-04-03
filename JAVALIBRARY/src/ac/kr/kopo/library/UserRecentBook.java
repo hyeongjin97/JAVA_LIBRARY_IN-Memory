@@ -1,6 +1,6 @@
 package ac.kr.kopo.library;
 
-public class UserRentBook {
+public class UserRecentBook {
 	
 	private String userID;
 	private String bookID;
@@ -10,7 +10,7 @@ public class UserRentBook {
 	private String returnDate;
 	
 	
-	public UserRentBook() {
+	public UserRecentBook() {
 		
 	}
 	
@@ -20,7 +20,7 @@ public class UserRentBook {
 				+ bookWriter + ", 대여일자=" + rentDate + ", 반납일자=" + returnDate + "]";
 	}
 
-	public UserRentBook(String userID, String bookID, String bookName, String bookWriter, String rentDate, String returnDate) {
+	public UserRecentBook(String userID, String bookID, String bookName, String bookWriter, String rentDate, String returnDate) {
 		
 		
 		this.userID = userID;
