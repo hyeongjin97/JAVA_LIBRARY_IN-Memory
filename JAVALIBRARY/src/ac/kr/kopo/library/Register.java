@@ -75,6 +75,7 @@ public class Register extends Member {
 	}
 
 	public Map<String, Member> getMap() {
+		
 		return map;
 
 	}

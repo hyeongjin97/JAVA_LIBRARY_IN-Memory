@@ -3,11 +3,13 @@ package ac.kr.kopo.library;
 import java.util.Map;
 import java.util.Scanner;
 
-public class MemberView {
+public class UserView {
 	
 	Scanner sc = new Scanner(System.in);
 	MyPageView mp = new MyPageView();
-	public void mainPage(Map<String,Member> map,String str) {
+	BookUtil bu = new BookUtil();
+	
+	public void mainPage(Map<String,Member> map,String str,Map<String,BookInfo> map1) {
 		
 		
 			while(true) {
@@ -16,8 +18,10 @@ public class MemberView {
 			String num = sc.nextLine();
 			switch(num) {
 			case "1":
+				bu.showBookList(map1);
 				break;
 			case "2":
+				bu.rentBook(map1,str);
 				break;
 			case "3":
 				break;

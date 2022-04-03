@@ -1,6 +1,5 @@
 package ac.kr.kopo.library;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -8,10 +7,8 @@ public class Login extends Register {
 
 	private Scanner sc = new Scanner(System.in);
 
-	protected String loginID;
+	private String loginID;
 	private String loginPwd;
-	private String loginName;
-	private String loginPhoneNumber;
 	
 
 	public void setLoginID(String loginID) {
@@ -26,7 +23,7 @@ public class Login extends Register {
 
 
 
-	public void loginStart(Map<String, Member> map) {
+	public String loginStart(Map<String, Member> map) {
 
 		System.out.println();
 		System.out.println("========로그인 시작========");
@@ -52,23 +49,21 @@ public class Login extends Register {
 
 		System.out.println("로그인 성공!! " + map.get(loginID).userName + "님 반갑습니다!!!");
 		
+		return map.get(loginID).userID;
 	}
+	
+	
 
 	
 
 	public Login() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Login(String userName, String userID, String userPWD, String userPhoneNumber) {
 		super(userName, userID, userPWD, userPhoneNumber);
-		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public String toString() {
-		return "Login [loginID=" + loginID + ", loginPwd=" + loginPwd + "]";
-	}
+	
 
 }

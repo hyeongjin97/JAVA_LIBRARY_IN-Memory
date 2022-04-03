@@ -4,10 +4,13 @@ import java.util.Scanner;
 
 public class LibraryMain {
 	public static void main(String[] args) {
+		
 		Scanner sc = new Scanner(System.in);
 		Register re = new Register();
 		Login lg = new Login();
-		MemberView mv = new MemberView();
+		UserView uv = new UserView();
+		BookUtil bu = new BookUtil();
+		
 		while (true) {
 			System.out.println("=====회원가입 및 로그인 구현=====");
 			System.out.println("1.회원가입 2.로그인 3. 종료");
@@ -19,7 +22,7 @@ public class LibraryMain {
 					break;
 				case "2":
 					lg.loginStart(re.getMap());
-					mv.mainPage(re.getMap(),lg.getLoginID());
+					uv.mainPage(re.getMap(),lg.getLoginID(),bu.defaultBooks());
 					break;
 				case "3":
 					System.exit(0);
