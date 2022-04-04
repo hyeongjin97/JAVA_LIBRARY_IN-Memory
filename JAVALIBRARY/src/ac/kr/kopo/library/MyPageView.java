@@ -42,7 +42,7 @@ public class MyPageView extends Login  {
 	public void modifyInfoPage(Map<String, Member> map, String str, List<UserRecentBook> list) {
 		System.out.println("회원정보 수정 페이지 입니다.");
 		System.out.println("수정하고 싶은 정보를 선택하세요.");
-		System.out.println("1. 이름 수정 2. 비밀번호 수정 3. 전화번호 수정 4. 메인페이지로 가기");
+		System.out.println("1. 이름 수정 2. 비밀번호 수정 3. 전화번호 수정 4. 내 정보 보기 5. 메인페이지 이동");
 		num = sc.nextLine();
 		switch (num) {
 		case "1":
@@ -52,8 +52,12 @@ public class MyPageView extends Login  {
 			modifyPasswordUtil(map, str, list);
 			break;
 		case "3":
+			modifyPhoneNumberUtil(map, str, list);
 			break;
 		case "4":
+			showUserInfo(map, str, list);
+			return;
+		case "5":
 			return;
 		default:
 			System.out.println("메뉴에 있는 번호를 선택하세요!!!");
@@ -120,16 +124,46 @@ public class MyPageView extends Login  {
 		}
 	}
 	
+	public void modifyPhoneNumberUtil(Map<String, Member> map, String str,List<UserRecentBook> list) {
+		System.out.println("현재 전화번호 : " + map.get(str).userPhoneNumber);
+		System.out.print("수정하고 싶은 전화번호를 입력하세요 : ");
+		modifyStr = sc.nextLine();
+		while (true) {
+			System.out.println("전화번호를 " + modifyStr + "로 바꾸시겠습니까?(Y/N)");
+			confirm = sc.nextLine();
+			if (confirm.equals("Y")) {
+				m = new Member(modifyStr, map.get(str).userID, map.get(str).userPWD, map.get(str).userPhoneNumber);
+				map.put(str, m);
+				System.out.println("전화번호가 " + modifyStr + "로 변경되었습니다.");
+				modifyInfoPage(map, str,list);
+			} else if (confirm.equals("N")) {
+				System.out.println("취소되었습니다.");
+				modifyInfoPage(map, str,list);
+			} else {
+				System.out.println("Y 또는 N을 입력해주세요.");
+				modifyNameUtil(map, str,list);
+
+			}
+			break;
+		}
+	}
+	
+	public void showUserInfo(Map<String, Member> map, String str,List<UserRecentBook> list) {
+		System.out.println("-------------------"+map.get(str).userName+"님의 정보 ---------------------------------------");
+		System.out.println(map.get(str).toString());
+		System.out.println("---------------------------------------------------------------------");
+	}
+	
 	public void showUserRent(List<UserRecentBook> list,String str) {
 		
-		System.out.println(str);
 		Object[] arr = list.toArray();
+		System.out.println("----------------------------------------------현재 대여중인 책 목록----------------------------------------------------------------");
 		for(int i = 0; i < arr.length; i++) {
 			if(list.get(i).getUserID().equals(str)) {
 				System.out.println(arr[i]);
 			}
 		}
-		
+		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 		
 		
 	}

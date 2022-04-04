@@ -16,8 +16,8 @@ public class UserRecentBook {
 	
 	@Override
 	public String toString() {
-		return "UserRentBook [userID=" + userID + ", bookID=" + bookID + ", bookName=" + bookName + ", bookWriter="
-				+ bookWriter + ", 대여일자=" + rentDate + ", 반납일자=" + returnDate + "]";
+		return "[bookID = " + bookID + ", bookName = " + bookName + ", bookWriter = "
+				+ bookWriter + ", 대여일자 = " + rentDate + ", 반납일자 = " + returnDate + "]";
 	}
 
 	public UserRecentBook(String userID, String bookID, String bookName, String bookWriter, String rentDate, String returnDate) {

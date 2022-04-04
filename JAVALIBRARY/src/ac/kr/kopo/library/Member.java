@@ -22,7 +22,7 @@ public class Member {
 	
 	@Override
 	public String toString() {
-		return "userName=" + userName + ", userID=" + userID + ", userPWD=" + userPWD + ", userPhoneNumber="
+		return "이름 = " + userName + ", 아이디 = " + userID + ", 패스워드 = " + userPWD + ", 전화번호 = "
 				+ userPhoneNumber + "";
 	}
 
