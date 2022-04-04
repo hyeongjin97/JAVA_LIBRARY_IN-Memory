@@ -13,7 +13,7 @@ public class BookUtil extends BookInfo {
 	List<UserRecentBook> userRecentList = new ArrayList<>();
 	
 	Map<String, Object[]> userRecentMap = new HashMap<>();
-
+	
 	private Scanner sc = new Scanner(System.in);
 
 	BookInfo bi = null;
@@ -24,13 +24,7 @@ public class BookUtil extends BookInfo {
 	
 
 
-	public Map<String, BookInfo> getBookMap() {
-		return bookMap;
-	}
-
-	public void setBookMap(Map<String, BookInfo> bookMap) {
-		this.bookMap = bookMap;
-	}
+	
 
 	public void showBookList(Map<String,BookInfo> map) {
 		
@@ -40,7 +34,15 @@ public class BookUtil extends BookInfo {
 		}
 	}
 
-	public void rentBook(Map<String,BookInfo> bookMap ,String str) {
+	public List<UserRecentBook> getUserRecentList() {
+		return userRecentList;
+	}
+
+	public void setUserRecentList(List<UserRecentBook> userRecentList) {
+		this.userRecentList = userRecentList;
+	}
+
+	public void rentBook(Map<String,BookInfo> bookMap ,String str, List<UserRecentBook> list) {
 		System.out.println("---------- 책 목록 ----------");
 		showBookList(bookMap);
 		System.out.println("---------------------------");
@@ -53,8 +55,8 @@ public class BookUtil extends BookInfo {
 			case "Y":
 				bi = bookMap.get(rentID);
  				urb =  new UserRecentBook(str ,bi.bookID, bi.bookName, bi.writer,"a","b");
-				userRecentList.add(urb);
-				Object[] arr = userRecentList.toArray();
+				list.add(urb);
+			    Object[] arr = list.toArray();
 //				for(int i = 0; i < arr.length; i++) {
 //					System.out.println(arr[i]);
 //				}

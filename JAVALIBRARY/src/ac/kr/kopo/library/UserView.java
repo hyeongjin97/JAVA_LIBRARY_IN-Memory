@@ -1,5 +1,6 @@
 package ac.kr.kopo.library;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class UserView {
 	MyPageView mp = new MyPageView();
 	BookUtil bu = new BookUtil();
 	
-	public void mainPage(Map<String,Member> map,String str,Map<String,BookInfo> map1, Map<String, Object[]> userRecentMap) {
+	public void mainPage(Map<String,Member> map,String str,Map<String,BookInfo> map1, List<UserRecentBook> list) {
 		
 		
 			while(true) {
@@ -21,12 +22,12 @@ public class UserView {
 				bu.showBookList(map1);
 				break;
 			case "2":
-				bu.rentBook(map1,str);
+				bu.rentBook(map1,str,list);
 				break;
 			case "3":
 				break;
 			case "4":
-				mp.MyPage(map,str,userRecentMap);
+				mp.MyPage(map,str,list);
 				break;
 			case "5":
 				return;

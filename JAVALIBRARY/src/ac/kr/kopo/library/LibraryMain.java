@@ -14,7 +14,6 @@ public class LibraryMain {
 		BookUtil bu = new BookUtil();
 
 		Map<String, BookInfo> bookMap = new HashMap<>();
-		Map<String,Object[]> map1 = new HashMap<>();
 		bookMap.put("1", new BookInfo("1", "자바의 정석", "남궁 성 ", "3"));
 		bookMap.put("2", new BookInfo("2", "이것이 자바다", "신용권", "1"));
 		bookMap.put("3", new BookInfo("3", "너의 췌장을 먹고 싶어", "스미노 요루", "4"));
@@ -31,7 +30,7 @@ public class LibraryMain {
 					break;
 				case "2":
 					lg.loginStart(re.getMap());
-					uv.mainPage(re.getMap(),lg.getLoginID(),bookMap,map1 = bu.getUserRecentMap());
+					uv.mainPage(re.getMap(),lg.getLoginID(),bookMap,bu.getUserRecentList());
 					break;
 				case "3":
 					System.exit(0);
