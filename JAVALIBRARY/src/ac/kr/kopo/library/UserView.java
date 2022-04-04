@@ -25,6 +25,7 @@ public class UserView {
 				bu.rentBook(map1,str,list);
 				break;
 			case "3":
+				bu.returnBook(list, str);
 				break;
 			case "4":
 				mp.MyPage(map,str,list);

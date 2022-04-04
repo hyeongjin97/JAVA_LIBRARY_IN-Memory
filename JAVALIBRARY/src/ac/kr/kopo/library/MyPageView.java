@@ -125,7 +125,7 @@ public class MyPageView extends Login  {
 		System.out.println(str);
 		Object[] arr = list.toArray();
 		for(int i = 0; i < arr.length; i++) {
-			if(arr[i].toString().contains(str)) {
+			if(list.get(i).getUserID().equals(str)) {
 				System.out.println(arr[i]);
 			}
 		}

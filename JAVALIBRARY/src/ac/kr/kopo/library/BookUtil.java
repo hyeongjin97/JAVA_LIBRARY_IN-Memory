@@ -60,10 +60,8 @@ public class BookUtil extends BookInfo {
 //				for(int i = 0; i < arr.length; i++) {
 //					System.out.println(arr[i]);
 //				}
-				userRecentMap.put(str, arr);
-				for(Object arr1 : arr) {
-					System.out.println(arr1);
-				}
+				userRecentMap.put(str, arr);		
+				
 				Integer a = Integer.parseInt(bookMap.get(rentID).bookQuantity)-1;
 				bookMap.get(rentID).bookQuantity = a.toString();
 				break;
@@ -80,6 +78,26 @@ public class BookUtil extends BookInfo {
 		}
 		
 		
+	}
+	
+	public void returnBook(List<UserRecentBook> list,String str) {
+		System.out.println("-------------------- 현재 대여중인 책 목록-------------------");
+		Object[] arr = list.toArray();
+	
+		for(int i = 0; i < arr.length; i++) {
+			if(list.get(i).getUserID().equals(str)) {
+				System.out.println(arr[i]);
+			}
+		}
+		System.out.println("--------------------------------------------------------");
+		System.out.println("반납하실 책 ID를 입력해주세요:");
+		String bookID = sc.nextLine();
+		for(int i = 0; i < list.size(); i++) {
+			if(list.get(i).getUserID().equals(str)&&list.get(i).getBookID().equals(bookID)) {
+				list.remove(i);
+				System.out.println(arr[i]+"가 반납되었습니다.");
+			}
+		}
 	}
 	
 	

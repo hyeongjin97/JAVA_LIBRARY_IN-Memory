@@ -30,5 +30,53 @@ public class UserRecentBook {
 		this.rentDate = rentDate;
 		this.returnDate = returnDate;
 	}
+
+	public String getUserID() {
+		return userID;
+	}
+
+	public void setUserID(String userID) {
+		this.userID = userID;
+	}
+
+	public String getBookID() {
+		return bookID;
+	}
+
+	public void setBookID(String bookID) {
+		this.bookID = bookID;
+	}
+
+	public String getBookName() {
+		return bookName;
+	}
+
+	public void setBookName(String bookName) {
+		this.bookName = bookName;
+	}
+
+	public String getBookWriter() {
+		return bookWriter;
+	}
+
+	public void setBookWriter(String bookWriter) {
+		this.bookWriter = bookWriter;
+	}
+
+	public String getRentDate() {
+		return rentDate;
+	}
+
+	public void setRentDate(String rentDate) {
+		this.rentDate = rentDate;
+	}
+
+	public String getReturnDate() {
+		return returnDate;
+	}
+
+	public void setReturnDate(String returnDate) {
+		this.returnDate = returnDate;
+	}
 	
 }
