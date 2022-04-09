@@ -20,8 +20,8 @@ public class LibraryMain {
 		bookMap.put("4", new BookInfo("4", "총 균 쇠", "재레드 다이아몬드", "0"));
 		
 		while (true) {
-			System.out.println("=====회원가입 및 로그인 구현=====");
-			System.out.println("1.회원가입 2.로그인 3. 종료");
+			System.out.println("===============코포 도서관에 오신걸 환영합니다.===============\n");
+			System.out.println("1.회원가입 2.로그인 3. 종료 (관리자 아이디 : admin, 비밀번호 : admin)");
 			String num = sc.nextLine();
 			while (true) {
 				switch (num) {

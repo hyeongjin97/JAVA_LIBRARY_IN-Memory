@@ -29,7 +29,7 @@ public class Login extends Register {
 		
 		map.put("admin", admin);
 		System.out.println();
-		System.out.println("========로그인 시작========");
+		System.out.println("========================로그인 시작=======================");
 		while (true) {
 			System.out.print("아이디를 입력하세요 : ");
 			loginID = sc.nextLine();
@@ -50,7 +50,7 @@ public class Login extends Register {
 			}
 		}
 
-		System.out.println("로그인 성공!! " + map.get(loginID).userName + "님 반갑습니다!!!");
+		System.out.println("\n로그인 성공!!\n" + map.get(loginID).userName + "님 반갑습니다!!!\n");
 		
 		return map.get(loginID).userID;
 	}

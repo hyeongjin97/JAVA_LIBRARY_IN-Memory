@@ -33,10 +33,12 @@ public class BookUtil extends BookInfo {
 	public void showBookList(Map<String, BookInfo> map) {
 
 		Object[] arr = map.values().toArray();
+		System.out.println("==========================현재 등록된 책 목록============================");
 		for (int i = 0; i < arr.length; i++) {
 			System.out.print(arr[i]);
 			System.out.println();
 		}
+		System.out.println("=====================================================================\n");
 	}
 
 	public List<UserRecentBook> getUserRecentList() {
@@ -54,10 +56,8 @@ public class BookUtil extends BookInfo {
 		cal2.add(Calendar.DATE, 7);
 		rentDate = new Date(cal.getTimeInMillis());
 		returnDate = new Date(cal2.getTimeInMillis());
-		System.out.println("--------------------------- 책 목록 -----------------------------------------");
 		showBookList(bookMap);
-		System.out.println("----------------------------------------------------------------------------");
-		System.out.print("대여하고 싶은 책 id 입력하세요 : ");
+		System.out.print("\n대여하고 싶은 책 id 입력하세요 : ");
 		String rentID = sc.nextLine();
 		if (bookMap.containsKey(rentID) && Integer.parseInt(bookMap.get(rentID).bookQuantity) > 0) {
 			System.out.println(bookMap.get(rentID) + "\n해당 정보의 책을 빌리시겠습니까?(Y/N)");
@@ -75,18 +75,18 @@ public class BookUtil extends BookInfo {
 
 				Integer a = Integer.parseInt(bookMap.get(rentID).bookQuantity) - 1;
 				bookMap.get(rentID).bookQuantity = a.toString();
-				System.out.println("대여가 완료되었습니다.");
+				System.out.println("대여가 완료되었습니다.\n");
 				break;
 			case "N":
-				System.out.println("취소되었습니다.");
+				System.out.println("취소되었습니다.\n");
 				break;
 			default:
-				System.out.println("Y 또는 N을 입력해주세요.");
+				System.out.println("Y 또는 N을 입력해주세요.\n");
 			}
 		} else if (!bookMap.containsKey(rentID)) {
-			System.out.println("입력하신 ID는 존재하지 않습니다.");
+			System.out.println("입력하신 ID는 존재하지 않습니다.\n");
 		} else {
-			System.out.println("입력하신 ID의 책 수량이 없습니다.");
+			System.out.println("입력하신 ID의 책 수량이 없습니다.\n");
 		}
 
 	}
@@ -100,15 +100,15 @@ public class BookUtil extends BookInfo {
 				System.out.println(arr[i]);
 			}
 		}
+		System.out.println("-----------------------------------------------------------------------------------------------------------------------------");
 		
 		if(list.size() == 0) {
-			System.out.println("현재 대여중인 책이 없습니다.");
+			System.out.println("현재 대여중인 책이 없습니다.\n");
 			return;
 			
 		}
 		
-		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
-		System.out.println("반납하실 책 ID를 입력해주세요:");
+		System.out.print("반납하실 책 ID를 입력해주세요:");
 		String bookID = sc.nextLine();
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).getUserID().equals(str) && list.get(i).getBookID().equals(bookID)) {
@@ -122,20 +122,20 @@ public class BookUtil extends BookInfo {
 					bookMap.get(bookID).bookQuantity = a.toString();
 					break;
 				case "N":
-					System.out.println("취소되었습니다.");
+					System.out.println("취소되었습니다.\n");
 					break;
 				default:
-					System.out.println("Y 또는 N 키를 입력해주세요.");
+					System.out.println("Y 또는 N 키를 입력해주세요.\n");
 					break;
 				}
 			}else {
-				System.out.println("대여 목록에 해당 ID 정보를 가진 책이 없습니다.");
+				System.out.println("대여 목록에 해당 ID 정보를 가진 책이 없습니다.\n");
 			}
 		}
 	}
 	
 	public void adminAddBook(Map<String, BookInfo> bookMap, String str, List<UserRecentBook> list) {
-		System.out.print("1. 기존에 있는 책 추가하기 2. 새로운 정보의 책 추가하기");
+		System.out.println("1. 기존에 있는 책 추가하기 2. 새로운 정보의 책 추가하기");
 		String num = sc.nextLine();
 		switch(num) {
 		case "1":
@@ -168,9 +168,7 @@ public class BookUtil extends BookInfo {
 			}
 			break;
 		case "2":
-			System.out.println("--------------------------- 책 목록 -----------------------------------------");
 			showBookList(bookMap);
-			System.out.println("----------------------------------------------------------------------------");
 			System.out.print("추가할 책 ID를 입력하세요 : ");
 			addBookID = sc.nextLine();
 			if(!bookMap.containsKey(addBookID)) {
@@ -195,10 +193,8 @@ public class BookUtil extends BookInfo {
 	}
 	
 	public void adminUpdateBook(Map<String, BookInfo> bookMap, String str, List<UserRecentBook> list) {
-		System.out.println("--------------------------- 책 목록 -----------------------------------------");
 		showBookList(bookMap);
-		System.out.println("----------------------------------------------------------------------------");
-		System.out.print("수정 책 ID를 입력하세요 : ");
+		System.out.println("수정 책 ID를 입력하세요 : ");
 		String updateBookID = sc.nextLine();
 		if(bookMap.containsKey(updateBookID)) {
 			System.out.print("수정할 책 이름을 입력해주세요:");
@@ -218,18 +214,16 @@ public class BookUtil extends BookInfo {
 	}
 	
 	public void adminDeleteBook(Map<String, BookInfo> bookMap, String str, List<UserRecentBook> list) {
-		System.out.println("--------------------------- 책 목록 -----------------------------------------");
 		showBookList(bookMap);
-		System.out.println("----------------------------------------------------------------------------");
 		System.out.print("삭제할 책 정보의 ID를 입력하세요 : ");
 		String deleteBookID = sc.nextLine();
 		if(bookMap.containsKey(deleteBookID)) {
 			System.out.println(bookMap.get(deleteBookID).toString());
-			System.out.println("해당 정보의 책이 삭제되었습니다.");
+			System.out.println("해당 정보의 책이 삭제되었습니다.\n");
 			bookMap.remove(deleteBookID);
 		
 		}else {
-			System.out.println("입력하신 ID를 가진 책 정보가 존재하지 않습니다.");
+			System.out.println("입력하신 ID를 가진 책 정보가 존재하지 않습니다.\n");
 		}
 	}
 	
@@ -250,18 +244,18 @@ public class BookUtil extends BookInfo {
 			switch(confirm) {
 			case "Y":
 				System.out.println(userMap.get(deleteUser).toString());
-				System.out.println("해당 정보의 사용자를 삭제하였습니다.");
+				System.out.println("해당 정보의 사용자를 삭제하였습니다.\n");
 				userMap.remove(deleteUser);
 				break;
 			case "N":
-				System.out.println("취소되었습니다.");
+				System.out.println("취소되었습니다.\n");
 				break;
 			default:
-				System.out.println("메뉴에 있는 번호를 입력해주세요.");
+				System.out.println("메뉴에 있는 번호를 입력해주세요.\n");
 			}
 		
 		}else {
-			System.out.println("입력하신 ID를 가진 사용자가 없습니다.");
+			System.out.println("입력하신 ID를 가진 사용자가 없습니다.\n");
 		}
 	}
 

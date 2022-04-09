@@ -13,7 +13,8 @@ public class UserView {
 	public void mainPage(Map<String, Member> map, String str, Map<String, BookInfo> map1, List<UserRecentBook> list) {
 		if (map.get(str).userID.equals("admin")) {
 			while (true) {
-				System.out.println("원하는 메뉴를 선택하세요 : ");
+				System.out.println("\n===============================메인 페이지===============================");
+				System.out.println("원하는 메뉴를 선택하세요.");
 				System.out.println("1.책 목록보기 2. 책 추가하기 3. 책 삭제하기 4. 책 정보 수정하기 5. 사용자 관리 6. 로그아웃");
 				String num = sc.nextLine();
 				switch (num) {
@@ -41,7 +42,8 @@ public class UserView {
 			}
 		} else {
 			while (true) {
-				System.out.println("원하는 메뉴를 선택하세요 : ");
+				System.out.println("\n===============================메인 페이지===============================");
+				System.out.println("원하는 메뉴를 선택하세요");
 				System.out.println("1.책 목록보기 2. 책 대여하기 3. 책 반납하기 4.마이페이지 5. 로그아웃");
 				String num = sc.nextLine();
 				switch (num) {
@@ -60,7 +62,7 @@ public class UserView {
 				case "5":
 					return;
 				default:
-					System.out.println("메뉴에 있는 번호를 선택하세요!!!");
+					System.out.println("\n메뉴에 있는 번호를 선택하세요!!!");
 
 				}
 

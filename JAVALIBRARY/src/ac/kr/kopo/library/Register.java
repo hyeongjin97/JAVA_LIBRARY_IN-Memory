@@ -15,7 +15,7 @@ public class Register extends Member {
 
 	public void startRegister() {
 		
-		System.out.println("------회원가입을 시작합니다--------");
+		System.out.println("====================회원가입을 시작합니다.===================");
 		while (true) {
 			System.out.print("이름을 입력하세요 : ");
 			userName = sc.nextLine();
@@ -29,7 +29,8 @@ public class Register extends Member {
 
 			System.out.print("아이디를 입력하세요 : ");
 			userID = sc.nextLine();
-			if (map.containsKey(userID)) {
+			
+			if (map.containsKey(userID) || userID.equals("admin")) {
 				System.out.println("해당 아이디가 존재합니다");
 			} else if (userID == "") {
 				System.out.println("공백은 입력불가입니다.");
@@ -69,8 +70,8 @@ public class Register extends Member {
 		m = new Member(userName, userID, userPWD, userPhoneNumber);
 		list.add(m);
 		map.put(userID, m);
-		System.out.println("회원가입 성공");
-		System.out.println("가입정보 : " + toString());
+		System.out.println("\n회원가입 성공!!");
+		System.out.println("가입정보 : " + toString()+"\n");
 	}
 
 	public Map<String, Member> getMap() {
