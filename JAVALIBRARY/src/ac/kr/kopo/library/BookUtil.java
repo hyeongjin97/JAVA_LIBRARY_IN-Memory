@@ -100,6 +100,13 @@ public class BookUtil extends BookInfo {
 				System.out.println(arr[i]);
 			}
 		}
+		
+		if(list.size() == 0) {
+			System.out.println("현재 대여중인 책이 없습니다.");
+			return;
+			
+		}
+		
 		System.out.println("------------------------------------------------------------------------------------------------------------------------------");
 		System.out.println("반납하실 책 ID를 입력해주세요:");
 		String bookID = sc.nextLine();

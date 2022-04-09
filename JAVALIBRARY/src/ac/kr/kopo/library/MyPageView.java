@@ -132,7 +132,7 @@ public class MyPageView extends Login  {
 			System.out.println("전화번호를 " + modifyStr + "로 바꾸시겠습니까?(Y/N)");
 			confirm = sc.nextLine();
 			if (confirm.equals("Y")) {
-				m = new Member(modifyStr, map.get(str).userID, map.get(str).userPWD, map.get(str).userPhoneNumber);
+				m = new Member(map.get(str).userName,map.get(str).userID, map.get(str).userPWD, modifyStr);
 				map.put(str, m);
 				System.out.println("전화번호가 " + modifyStr + "로 변경되었습니다.");
 				modifyInfoPage(map, str,list);
