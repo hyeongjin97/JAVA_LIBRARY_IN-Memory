@@ -5,7 +5,7 @@ public class Member {
 	String userID;
 	String userPWD;
 	String userPhoneNumber;
-	
+
 	public Member() {
 		super();
 	}
@@ -18,16 +18,9 @@ public class Member {
 		this.userPhoneNumber = userPhoneNumber;
 	}
 
-	
-	
 	@Override
 	public String toString() {
-		return "이름 = " + userName + ", 아이디 = " + userID + ", 패스워드 = " + userPWD + ", 전화번호 = "
-				+ userPhoneNumber + "";
+		return "이름 = " + userName + ", 아이디 = " + userID + ", 패스워드 = " + userPWD + ", 전화번호 = " + userPhoneNumber + "";
 	}
 
-	
-	
-	
-	
 }

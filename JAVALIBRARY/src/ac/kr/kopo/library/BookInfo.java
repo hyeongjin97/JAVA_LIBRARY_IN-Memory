@@ -1,8 +1,8 @@
 package ac.kr.kopo.library;
 
-public class BookInfo {
+public class BookInfo {  // 책 정보를 담고 있는 클래스 
 	
-	String bookID;
+	String bookID; 
 	String bookName;	
 	String writer;
 	String bookQuantity;

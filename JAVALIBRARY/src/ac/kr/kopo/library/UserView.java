@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class UserView {
+public class UserView { // 로그인 성공 시 보여주는 메인 페이지, 관리자와 일반 유저로 나누어져 있다.
 
 	Scanner sc = new Scanner(System.in);
 	MyPageView mp = new MyPageView();
 	BookUtil bu = new BookUtil();
 
 	public void mainPage(Map<String, Member> map, String str, Map<String, BookInfo> map1, List<UserRecentBook> list) {
-		if (map.get(str).userID.equals("admin")) {
+		if (map.get(str).userID.equals("admin")) { // 로그인 아이디가 admin일 경우 관리자페이지로 이동
 			while (true) {
 				System.out.println("\n===============================메인 페이지===============================");
 				System.out.println("원하는 메뉴를 선택하세요.");
@@ -42,7 +42,8 @@ public class UserView {
 			}
 		} else {
 			while (true) {
-				System.out.println("\n===============================메인 페이지===============================");
+				System.out.println("\n===============================메인 페이지==============================="); // 회원 메인
+																												// 페이지
 				System.out.println("원하는 메뉴를 선택하세요");
 				System.out.println("1.책 목록보기 2. 책 대여하기 3. 책 반납하기 4.마이페이지 5. 로그아웃");
 				String num = sc.nextLine();

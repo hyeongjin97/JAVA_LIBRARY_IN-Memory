@@ -3,37 +3,40 @@ package ac.kr.kopo.library;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Login extends Register {
+public class Login extends Register { 
 
-	Member admin = new Member("admin","admin","admin","admin");
-	
+	Member admin = new Member("admin", "admin", "admin", "admin");
+
 	private Scanner sc = new Scanner(System.in);
 
 	private String loginID;
 	private String loginPwd;
-	
 
 	public void setLoginID(String loginID) {
 		this.loginID = loginID;
 	}
 
-	
-
 	public String getLoginID() {
 		return loginID;
 	}
 
+	public Login() {
+		super();
+	}
 
+	public Login(String userName, String userID, String userPWD, String userPhoneNumber) {
+		super(userName, userID, userPWD, userPhoneNumber);
+	}
 
-	public String loginStart(Map<String, Member> map) {
-		
+	public String loginStart(Map<String, Member> map) { // 로그인 메소드
+
 		map.put("admin", admin);
 		System.out.println();
 		System.out.println("========================로그인 시작=======================");
 		while (true) {
 			System.out.print("아이디를 입력하세요 : ");
 			loginID = sc.nextLine();
-			if (!map.containsKey(loginID)) {
+			if (!map.containsKey(loginID)) { // 아이디 존재 체크
 				System.out.println("등록된 아이디가 없습니다.");
 			} else {
 				break;
@@ -51,22 +54,8 @@ public class Login extends Register {
 		}
 
 		System.out.println("\n로그인 성공!!\n" + map.get(loginID).userName + "님 반갑습니다!!!\n");
-		
+
 		return map.get(loginID).userID;
 	}
-	
-	
-
-	
-
-	public Login() {
-		super();
-	}
-
-	public Login(String userName, String userID, String userPWD, String userPhoneNumber) {
-		super(userName, userID, userPWD, userPhoneNumber);
-	}
-
-	
 
 }

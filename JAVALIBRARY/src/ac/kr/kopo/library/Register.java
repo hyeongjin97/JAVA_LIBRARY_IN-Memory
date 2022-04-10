@@ -14,12 +14,12 @@ public class Register extends Member {
 	Map<String, Member> map = new HashMap<>();
 
 	public void startRegister() {
-		
+
 		System.out.println("====================회원가입을 시작합니다.===================");
 		while (true) {
 			System.out.print("이름을 입력하세요 : ");
 			userName = sc.nextLine();
-			if (userName == "") {
+			if (userName == "") { // 아이디 공백체크
 				System.out.println("공백은 입력불가입니다.");
 			} else {
 				break;
@@ -29,8 +29,8 @@ public class Register extends Member {
 
 			System.out.print("아이디를 입력하세요 : ");
 			userID = sc.nextLine();
-			
-			if (map.containsKey(userID) || userID.equals("admin")) {
+
+			if (map.containsKey(userID) || userID.equals("admin")) { // 아이디 중복 체크
 				System.out.println("해당 아이디가 존재합니다");
 			} else if (userID == "") {
 				System.out.println("공백은 입력불가입니다.");
@@ -47,15 +47,15 @@ public class Register extends Member {
 				while (true) {
 					System.out.print("비밀번호를 다시 한번 입력하세요 : ");
 					String userPWD2 = sc.nextLine();
-					if (!userPWD.equals(userPWD2)) {
+					if (!userPWD.equals(userPWD2)) { // 2번 입력한 비밀번호 동일한지 확인
 						System.out.println("비밀번호가 일치하지 않습니다.");
 					} else {
 						break;
 					}
 				}
 				break;
-		}
-			
+			}
+
 		}
 		while (true) {
 			System.out.print("전화번호를 입력하세요 : ");
@@ -66,21 +66,20 @@ public class Register extends Member {
 				break;
 			}
 		}
-		
+
 		m = new Member(userName, userID, userPWD, userPhoneNumber);
 		list.add(m);
-		map.put(userID, m);
+		map.put(userID, m); // 멤버 객처를 유저 정볼르 담고 있는 맵에 추가
 		System.out.println("\n회원가입 성공!!");
-		System.out.println("가입정보 : " + toString()+"\n");
+		System.out.println("가입정보 : " + toString() + "\n");
 	}
 
 	public Map<String, Member> getMap() {
-		
+
 		return map;
 
 	}
 
-	
 	public void process() {
 		startRegister();
 	}

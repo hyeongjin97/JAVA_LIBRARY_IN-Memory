@@ -17,7 +17,7 @@ public class LibraryMain {
 		bookMap.put("1", new BookInfo("1", "자바의 정석", "남궁 성 ", "3"));
 		bookMap.put("2", new BookInfo("2", "이것이 자바다", "신용권", "1"));
 		bookMap.put("3", new BookInfo("3", "너의 췌장을 먹고 싶어", "스미노 요루", "4"));
-		bookMap.put("4", new BookInfo("4", "총 균 쇠", "재레드 다이아몬드", "0"));
+		bookMap.put("4", new BookInfo("4", "총 균 쇠", "재레드 다이아몬드", "0"));     // 기본 도서 정보 입력
 		
 		while (true) {
 			System.out.println("===============코포 도서관에 오신걸 환영합니다.===============\n");
@@ -26,11 +26,11 @@ public class LibraryMain {
 			while (true) {
 				switch (num) {
 				case "1":
-					re.process();
+					re.process(); // 회원가입 시작 
 					break;
 				case "2":
-					lg.loginStart(re.getMap());
-					uv.mainPage(re.getMap(),lg.getLoginID(),bookMap,bu.getUserRecentList());
+					lg.loginStart(re.getMap()); // 로그인 시작 
+					uv.mainPage(re.getMap(),lg.getLoginID(),bookMap,bu.getUserRecentList()); // mainPage(회원정보 맵, 로그인한 아이디, 유저가 대여중인 책 리스트)
 					break;
 				case "3":
 					System.exit(0);
